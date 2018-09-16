@@ -1,0 +1,166 @@
+<h2 class="header-dividing">兑换礼品列表</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_add_category" style="margin-bottom: 20px;">添加新礼品</button>
+<div class="modal fade" id="myModal_add_category">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title">添加新礼品</h4>
+            </div>
+            <form method="post" onsubmit="return checkInput();">
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">礼品名称</span>
+                        <input type="text" class="form-control" name="exname" id="add_exname_input" placeholder="礼品名称">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">所需爱心币</span>
+                        <input type="text" class="form-control" name="exmoney" id="add_exmoney_input" placeholder="所需爱心币">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" name="add" class="btn btn-default">添加</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<table class="table" style="width: 800px;">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>礼品名称</th>
+        <th>兑换所需爱心币</th>
+        <th style="width: 3.5em;"></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo">
+        <tr>
+            <td>{$i}</td>
+            <td id="td-name-{$vo.id}">{$vo.exname}</td>
+            <td id="td-name1-{$vo.id}">{$vo.exmoney}</td>
+            <td>
+                <button type="button" class="btn btn-primary modal-info-btn" name="{$vo.id}" data-toggle="modal" data-target="#myModal_change_cagegory">编辑</button>
+            </td>
+            <td>
+                <a type="button" href="{:U("Home/Index/delexchange?id=$vo[id]")}" class="btn btn-primary" onclick="del();">删除</a>
+            </td>
+        </tr>
+    </volist>
+    <div class="modal fade" id="myModal_change_cagegory">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                    <h4 class="modal-title">修改礼品信息</h4>
+                </div>
+                <form method="post">
+                    <div class="modal-body">
+                        <div class="input-group">
+                            <span class="input-group-addon">礼品名称</span>
+                            <input type="text" class="form-control" name="exchange_name" id="exname_input" placeholder="活动种类名">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon">所需爱心币</span>
+                            <input type="text" class="form-control" name="exchange_money" id="exmoney_input" placeholder="活动种类名">
+                        </div>
+                        <div class="alert alert-success alert-info">修改成功</div>
+                        <div class="alert alert-warning alert-info">修改失败</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="change" class="btn btn-default">修改</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+       var infoBtn = $(".modal-info-btn");
+        var id;
+        var tdid;
+        var tmpId;
+        $('.alert-info').hide();
+
+        // 遍历编辑按钮
+        $(infoBtn).each(function(index, el) {
+            $(this).on('click', function() {
+                $('.alert-info').hide();
+                // 获取该行信息的id
+                id = $(this).attr('name');
+                // 显示name的td的id
+                tdid = "#td-name-" + id;
+                // 显示 money 的 td 的 id
+                tmpId = "#td-name1-" + id;
+                var name = $(tdid).text();
+                console.log(name);
+                $("#exname_input").val(name);
+                $("#exmoney_input").val($(tmpId).text());
+            })
+        });
+
+        $('#change').on('click', function () {
+            $('.alert-info').hide();
+            var new_name = $('#exname_input').val().trim();
+            var new_money = $("#exmoney_input").val().trim();
+            if(new_name == "" || new_money == "") {
+                alert('不可以为空哦');
+                return;
+            }
+            console.log(new_name + "  " + new_money);
+            var data = {
+                id: id,
+                exname: new_name,
+                exmoney: new_money
+            };
+            $.ajax({
+                url: '{:U("/Home/Index/change_exchange")}',
+                method: 'POST',
+                data: data
+            }).done(function(dataget) {
+                if(dataget == 1) { // 成功修改
+                    $("#exname_input").val(new_name);
+                    $("#exmoney_input").val(new_money);
+                    $(tdid).text(new_name);
+                    $(tmpId).text(new_money);
+                    $(".alert-success").show();
+                } else { // 修改失败
+                    $(".alert-warning").show();
+                }
+//                console.log('change succeed');
+            }).fail(function() { // 未响应
+                console.log('change error');
+            });
+        });
+    });
+
+</script>
+<script type="text/javascript">
+    function del() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+
+    // 添加种类时不可以为空
+    function checkInput() {
+        var a_name = $('#add_exname_input').val().trim();
+        var a_money = $('#add_exmoney_input').val().trim();
+        if(a_name == "" || a_money == "") {
+            alert('不可以为空');
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>

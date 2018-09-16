@@ -1,0 +1,64 @@
+<h2 class="header-dividing">公益活动列表</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th style="width: 8%;">活动名</th>
+        <th>活动种类</th>
+        <th>简介</th>
+        <th>开始时间</th>
+        <th>组织机构</th>
+        <th style="width: 3.5em;"></th>
+        <th style="width: 3.5em;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo" key="k">
+        <tr>
+            <td>{$k}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.category_name}</td>
+            <td>{$vo.summary}</td>
+            <td>{$vo.begintime}</td>
+            <td>{$vo.agency_name}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{$k}">查看详情</button>
+                <div class="modal fade" id="myModal{$k}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                <h4 class="modal-title">{$vo.name}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>简介: {$vo.summary}</p>
+                                <p>开始时间: {$vo.begintime}</p>
+                                <p>结束时间: {$vo.endtime}</p>
+                                <p>地点: {$vo.location}</p>
+                                <p>活动种类: {$vo.category_name}</p>
+                                <p>联系方式: {$vo.contact}</p>
+                                <p>组织机构: {$vo.agency_name}</p>
+                                <p>招募人数: {$vo.capacity}</p>
+                                <p>详情: {$vo.info}</p>
+                                <p>活动图片:
+                                    <img src="{$vo.photo}" width="220px" class="img-responsive" alt="活动图片">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a type="button" href="{:U("/Home/Index/delactivity?id=$vo[id]")}" class="btn btn-primary" onclick="del();">删除</a>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+<script type="text/javascript">
+    function del() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>

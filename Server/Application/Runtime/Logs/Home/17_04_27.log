@@ -1,0 +1,60 @@
+[ 2017-04-27T18:54:28+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012829s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.016025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016088s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0282s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0193s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 ) ORDER BY apply.time desc  [ RunTime:0.0037s ]
+
+[ 2017-04-27T20:09:15+08:00 ] ::1 /LoveInn/index.php/Home/App/exchangeInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000428s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `exchange` [ RunTime:0.0222s ]
+SQL: SELECT * FROM `exchange`  [ RunTime:0.0004s ]
+
+[ 2017-04-27T20:21:21+08:00 ] ::1 /LoveInn/index.php/Home/App/getMoney?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000354s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `volunteer` [ RunTime:0.0185s ]
+SQL: SELECT `money` FROM `volunteer` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.012480s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012534s ]
+
+[ 2017-04-27T20:21:27+08:00 ] ::1 /LoveInn/index.php/Home/App/getMoney?user_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000403s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `volunteer` [ RunTime:0.0136s ]
+SQL: SELECT `money` FROM `volunteer` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000445s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000476s ]
+
+[ 2017-04-27T20:21:29+08:00 ] ::1 /LoveInn/index.php/Home/App/getMoney?user_id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000264s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `volunteer` [ RunTime:0.0172s ]
+SQL: SELECT `money` FROM `volunteer` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000426s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000453s ]
+

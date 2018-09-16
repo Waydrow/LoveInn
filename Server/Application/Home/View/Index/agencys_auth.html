@@ -1,0 +1,52 @@
+<h2 class="header-dividing">待审核机构列表</h2>
+<table class="table" style="width: 800px;">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>机构名</th>
+        <th>用户名</th>
+        <th style="width: 3.5em;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo">
+        <tr>
+            <td>{$i}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.username}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{$i}">查看详情</button>
+                <div class="modal fade" id="myModal{$i}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                <h4 class="modal-title">{$vo.name}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><b>地址:</b> {$vo.address}</p>
+                                <p><b>电话:</b> {$vo.contact}</p>
+                                <p><b>头像:</b> <img src="{$vo.photo}" width="150px" class="img-responsive" alt="头像"></p>
+                                <p><b>营业执照:</b> <img src="{$vo.certification}" width="200px" class="img-responsive" alt="执照"></p>
+                                <p><b>实名状态:</b> 未实名认证</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a type="button" href="{:U("Home/Index/agency_auth_success?id=$vo[id]")}" class="btn btn-default">通过</a>
+                                <a type="button" href="{:U("Home/Index/agency_auth_deny?id=$vo[id]")}" class="btn btn-default">拒绝</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function del() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>

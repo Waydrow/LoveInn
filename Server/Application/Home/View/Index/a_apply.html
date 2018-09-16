@@ -1,0 +1,152 @@
+<h2>{$activity_name}</h2>
+<h3 class="header-dividing">活动报名列表</h3>
+<h4>待审核{$list|count}人</h4>
+<table class="table datatable" id="datatable">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>用户姓名</th>
+        <th>用户帐号</th>
+        <th>报名时间</th>
+        <th>用户爱心币</th>
+        <!--<th class="sort-disabled">操作</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo" key="k">
+        <tr id="{$vo.id}">
+            <td>{$k}<input type="text" hidden value="{$vo.id}" class="hide_input"></td>
+            <td>{$vo.user_realname}</td>
+            <td>{$vo.user_name}</td>
+            <td>{$vo.time}</td>
+            <td>{$vo.user_money}</td>
+            <!--<td>-->
+                <!--<a href="{:U("/Home/Index/a_apply_success?id=$vo[id]")}" type="button" class="btn btn-success">通过</a>-->
+                <!--<a href="{:U("/Home/Index/a_apply_deny?id=$vo[id]")}" type="button" class="btn btn-danger">拒绝</a>-->
+            <!--</td>-->
+        </tr>
+    </volist>
+    </tbody>
+</table>
+<div>
+    <button class="btn btn-success" id="success_many">批量通过</button>&nbsp;&nbsp;
+    <button class="btn btn-danger" id="deny_many">批量拒绝</button>
+</div>
+<br>
+<h4>已通过{$list_join|count}人</h4>
+<table class="table datatable" id="datatable_true">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>用户姓名</th>
+        <th>用户帐号</th>
+        <th>报名时间</th>
+        <th>用户爱心币</th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list_join" id="vo" key="k">
+        <tr id="{$vo.id}">
+            <td>{$k}</td>
+            <td>{$vo.user_realname}</td>
+            <td>{$vo.user_name}</td>
+            <td>{$vo.time}</td>
+            <td>{$vo.user_money}</td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+
+<script src="//cdn.bootcss.com/zui/1.5.0/js/zui.min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/lib/datatable/zui.datatable.min.css">
+<script src="__PUBLIC__/lib/datatable/zui.datatable.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datatable').datatable({
+            sortable: true,
+            checkable: true,
+        });
+
+        $('#datatable_true').datatable({
+            sortable: true,
+        });
+
+        // 批量通过
+        $("#success_many").on('click', function() {
+            // 获取数据表格实例对象
+            var myDatatable = $('#datatable').data('zui.datatable');
+
+            // 获取行选中数据
+            var checksStatus = myDatatable.checks;
+            if(!checksStatus) {
+                alert('请选择至少一行');
+                return;
+            }
+            var checksArray = checksStatus.checks;
+            if(checksArray.length == 0) {
+                alert('请选择至少一行');
+                return;
+            }
+            // 发送选中的行id, 即apply id
+            var postdata = {
+                ids: checksArray
+            };
+            $.ajax({
+                url: '{:U("/Home/Index/a_apply_success_many")}',
+                method: "POST",
+                data: postdata,
+            }).done(function(dataget) {
+                console.log(dataget);
+                if(dataget == 1) {
+                    alert('通过成功');
+                    location.reload();
+                }
+                if(dataget == 0) {
+                    alert('通过失败, 请稍后重试');
+                }
+            }).fail(function() {
+                alert('请求失败, 请稍后重试');
+            })
+
+        });
+
+        // 批量拒绝
+        $("#deny_many").on('click', function() {
+            // 获取数据表格实例对象
+            var myDatatable = $('#datatable').data('zui.datatable');
+
+            // 获取行选中数据
+            var checksStatus = myDatatable.checks;
+            if(!checksStatus) {
+                alert('请选择至少一行');
+                return;
+            }
+            var checksArray = checksStatus.checks;
+            if(checksArray.length == 0) {
+                alert('请选择至少一行');
+                return;
+            }
+            // 发送选中的行id, 即apply id
+            var postdata = {
+                ids: checksArray
+            };
+            $.ajax({
+                url: '{:U("/Home/Index/a_apply_deny_many")}',
+                method: "POST",
+                data: postdata,
+            }).done(function(dataget) {
+                console.log(dataget);
+                if(dataget == 1) {
+                    alert('拒绝成功');
+                    location.reload();
+                }
+                if(dataget == 0) {
+                    alert('拒绝失败, 请稍后重试');
+                }
+            }).fail(function() {
+                alert('请求失败, 请稍后重试');
+            })
+
+        });
+    });
+</script>

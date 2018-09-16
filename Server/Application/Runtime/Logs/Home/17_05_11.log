@@ -1,0 +1,183 @@
+[ 2017-05-11T14:20:10+08:00 ] ::1 /Loveinn/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.010314s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.013370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.013450s ]
+
+[ 2017-05-11T14:20:10+08:00 ] ::1 /Loveinn/index.php/Home/Index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000225s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000285s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000747s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000794s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.123863s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.123943s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.009838s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009877s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.010578s ]
+INFO: [ app_end ] --END-- [ RunTime:0.010628s ]
+
+[ 2017-05-11T14:20:15+08:00 ] ::1 /Loveinn/index.php/Home/Index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003562s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003596s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000161s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000180s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0246s ]
+SQL: SELECT * FROM `admin` WHERE ( account="222" and password="bcbe3365e6ac95ea2c0343a2395834dd" )  [ RunTime:0.0022s ]
+
+[ 2017-05-11T14:20:16+08:00 ] ::1 /Loveinn/index.php/Home/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000416s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000597s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0142s ]
+SQL: SELECT * FROM `admin` WHERE ( account='222' )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `volunteer` [ RunTime:0.0207s ]
+SQL: SELECT * FROM `volunteer` ORDER BY id  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/header.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/footer.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000146s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.169993s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.170052s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000826s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000868s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005058s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005119s ]
+
+[ 2017-05-11T14:20:24+08:00 ] ::1 /Loveinn/index.php/Home/Index/exchanges.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.1412s ]
+SQL: SELECT * FROM `admin` WHERE ( account='222' )  [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `exchange` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `exchange`  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/header.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/footer.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000099s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000137s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073741s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073803s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000344s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000394s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000577s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000625s ]
+
+[ 2017-05-11T14:20:35+08:00 ] ::1 /Loveinn/index.php/Home/Index/exapply.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000238s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000383s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0134s ]
+SQL: SELECT * FROM `admin` WHERE ( account='222' )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `exapply` [ RunTime:0.0208s ]
+SQL: SHOW COLUMNS FROM `exchange` [ RunTime:0.0107s ]
+SQL: SHOW COLUMNS FROM `volunteer` [ RunTime:0.0093s ]
+SQL: SELECT exapply.id AS id,exapply.userid AS userid,exapply.exid AS exid,exapply.isend AS isend,exchange.exname AS exname,exchange.exmoney AS exmoney,volunteer.realname AS realname,volunteer.username AS username,volunteer.phone AS phone,volunteer.email AS email FROM exapply exapply  JOIN exchange exchange ON exapply.exid=exchange.id  JOIN volunteer volunteer ON exapply.userid=volunteer.id WHERE ( isend=0 )  [ RunTime:0.0014s ]
+SQL: SELECT exapply.id AS id,exapply.userid AS userid,exapply.exid AS exid,exapply.isend AS isend,exchange.exname AS exname,exchange.exmoney AS exmoney,volunteer.realname AS realname,volunteer.username AS username,volunteer.phone AS phone,volunteer.email AS email FROM exapply exapply  JOIN exchange exchange ON exapply.exid=exchange.id  JOIN volunteer volunteer ON exapply.userid=volunteer.id WHERE ( isend<>0 )  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/header.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/footer.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000089s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.101098s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.101139s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000199s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000628s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000694s ]
+
+[ 2017-05-11T15:20:37+08:00 ] ::1 /Loveinn/index.php/Home/Index/exapply.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000611s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000639s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0172s ]
+SQL: SELECT * FROM `admin` WHERE ( account='222' )  [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `exapply` [ RunTime:0.0107s ]
+SQL: SHOW COLUMNS FROM `exchange` [ RunTime:0.0068s ]
+SQL: SHOW COLUMNS FROM `volunteer` [ RunTime:0.0087s ]
+SQL: SELECT exapply.id AS id,exapply.userid AS userid,exapply.exid AS exid,exapply.isend AS isend,exchange.exname AS exname,exchange.exmoney AS exmoney,volunteer.realname AS realname,volunteer.username AS username,volunteer.phone AS phone,volunteer.email AS email FROM exapply exapply  JOIN exchange exchange ON exapply.exid=exchange.id  JOIN volunteer volunteer ON exapply.userid=volunteer.id WHERE ( isend=0 )  [ RunTime:0.0007s ]
+SQL: SELECT exapply.id AS id,exapply.userid AS userid,exapply.exid AS exid,exapply.isend AS isend,exchange.exname AS exname,exchange.exmoney AS exmoney,volunteer.realname AS realname,volunteer.username AS username,volunteer.phone AS phone,volunteer.email AS email FROM exapply exapply  JOIN exchange exchange ON exapply.exid=exchange.id  JOIN volunteer volunteer ON exapply.userid=volunteer.id WHERE ( isend<>0 )  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/header.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/footer.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000069s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000097s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062875s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063093s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000324s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000351s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000802s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000855s ]
+
+[ 2017-05-11T15:36:28+08:00 ] ::1 /Loveinn/index.php/Home/Index/categorys.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000259s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000464s ]
+SQL: SHOW COLUMNS FROM `admin` [ RunTime:0.0233s ]
+SQL: SELECT * FROM `admin` WHERE ( account='222' )  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.0334s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/header.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+NOTIC: [2] file_get_contents(./Application/Home/View/Public/footer.html): failed to open stream: No such file or directory D:\Apache24\htdocs\LoveInn\ThinkPHP\Library\Think\Template.class.php 第 696 行.
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000106s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000161s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.166637s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.166692s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000464s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000838s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001858s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001945s ]
+

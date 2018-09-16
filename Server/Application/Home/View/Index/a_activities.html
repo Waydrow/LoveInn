@@ -1,0 +1,153 @@
+<h2 class="header-dividing">我的公益活动列表</h2>
+<a href="{:U("/Home/Index/a_activity")}" type="button" class="btn btn-primary" style="margin-bottom: 20px;">添加新活动</a>
+<h3 class="header-dividing" style="color: #38B03F; font-weight: bold;">未结束</h3>
+<table class="table datatable">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th style="width: 8%;">活动名</th>
+        <th>活动种类</th>
+        <th>简介</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>招募人数</th>
+        <th style="width: 3.5em;"></th>
+        <th style="width: 3.5em;"></th>
+        <th style="width: 3.5em;"></th>
+        <th style="width: 3.5em;"></th>
+        <th style="width: 3.5em;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo" key="k">
+        <tr>
+            <td>{$k}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.category_name}</td>
+            <td>{$vo.summary}</td>
+            <td>{$vo.begintime}</td>
+            <td>{$vo.endtime}</td>
+            <td>{$vo.capacity}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{$k}">查看详情</button>
+                <div class="modal fade" id="myModal{$k}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                <h4 class="modal-title">{$vo.name}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>简介: {$vo.summary}</p>
+                                <p>开始时间: {$vo.begintime}</p>
+                                <p>结束时间: {$vo.endtime}</p>
+                                <p>地点: {$vo.location}</p>
+                                <p>活动种类: {$vo.category_name}</p>
+                                <p>联系方式: {$vo.contact}</p>
+                                <p>组织机构: {$vo.agency_name}</p>
+                                <p>招募人数: {$vo.capacity}</p>
+                                <p>详情: {$vo.info}</p>
+                                <p>活动图片:
+                                    <img src="{$vo.photo}" width="220px" class="img-responsive" alt="活动图片">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a type="button" href="{:U("/Home/Index/a_apply?id=$vo[id]")}" class="btn btn-primary">报名情况</a>
+            </td>
+            <td>
+                <a type="button" href="{:U("/Home/Index/a_activity?id=$vo[id]")}" class="btn btn-primary">编&nbsp;&nbsp;&nbsp;辑</a>
+            </td>
+            <td>
+                <a type="button" href="{:U("/Home/Index/a_delactivity?id=$vo[id]")}" class="btn btn-primary" onclick="del();">删&nbsp;&nbsp;&nbsp;除</a>
+            </td>
+            <td>
+                <a type="button" href="{:U("/Home/Index/end_activity?id=$vo[id]")}" class="btn btn-primary" onclick="end();">结束活动</a>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+<h3 class="header-dividing" style="color: #BD7B46; font-weight: bold;">已结束</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th style="width: 8%;">活动名</th>
+        <th>活动种类</th>
+        <th>简介</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>招募人数</th>
+        <th class="sort-disabled" style="width: 3.5em;"></th>
+        <th class="sort-disabled" style="width: 3.5em;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list_end" id="vo" key="k">
+        <tr>
+            <td>{$k}</td>
+            <td>{$vo.name}</td>
+            <td>{$vo.category_name}</td>
+            <td>{$vo.summary}</td>
+            <td>{$vo.begintime}</td>
+            <td>{$vo.endtime}</td>
+            <td>{$vo.capacity}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2{$k}">查看详情</button>
+                <div class="modal fade" id="myModal2{$k}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                <h4 class="modal-title">{$vo.name}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>简介: {$vo.summary}</p>
+                                <p>开始时间: {$vo.begintime}</p>
+                                <p>结束时间: {$vo.endtime}</p>
+                                <p>地点: {$vo.location}</p>
+                                <p>活动种类: {$vo.category_name}</p>
+                                <p>联系方式: {$vo.contact}</p>
+                                <p>组织机构: {$vo.agency_name}</p>
+                                <p>招募人数: {$vo.capacity}</p>
+                                <p>详情: {$vo.info}</p>
+                                <p>活动图片:
+                                    <img src="{$vo.photo}" width="220px" class="img-responsive" alt="活动图片">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a type="button" href="{:U("/Home/Index/a_rate?id=$vo[id]")}" class="btn btn-primary">评&nbsp;&nbsp;&nbsp;分</a>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+<!--<script src="//cdn.bootcss.com/zui/1.5.0/js/zui.min.js"></script>-->
+<!--<link rel="stylesheet" href="__PUBLIC__/lib/datatable/zui.datatable.min.css">-->
+<!--<script src="__PUBLIC__/lib/datatable/zui.datatable.min.js"></script>-->
+<script type="text/javascript">
+//    $(document).ready(function () {
+//        $('table.datatable').datatable({
+//            sortable: true,
+//        });
+//    });
+    function del() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+
+    function end() {
+        if (!confirm("确认要结束？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>

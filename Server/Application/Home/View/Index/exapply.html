@@ -1,0 +1,73 @@
+<h2 class="header-dividing">礼品兑换处理列表</h2>
+<table class="table" style="width: 800px;">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>申请兑换礼品名称</th>
+        <th>志愿者姓名</th>
+        <th>用户名</th>
+        <th>联系电话</th>
+        <th>Email</th>
+        <th style="width: 3.5em;"></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo">
+        <tr>
+            <td>{$i}</td>
+            <td>{$vo.exname}</td>
+            <td>{$vo.realname}</td>
+            <td>{$vo.username}</td>
+            <td>{$vo.phone}</td>
+            <td>{$vo.email}</td>
+            <td>
+                <a type="button" href="{:U("Home/Index/exapply_success?id=$vo[id]")}" class="btn btn-primary">通过</a>
+            </td>
+            <td>
+                <a type="button" href="{:U("Home/Index/exapply_deny?id=$vo[id]")}" class="btn btn-default">拒绝</a>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+
+<h2 class="header-dividing">已处理列表</h2>
+<table class="table" style="width: 800px;">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>申请兑换礼品名称</th>
+        <th>志愿者姓名</th>
+        <th>用户名</th>
+        <th>联系电话</th>
+        <th>Email</th>
+        <th>是否通过</th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list_done" id="vo">
+        <tr>
+            <td>{$i}</td>
+            <td>{$vo.exname}</td>
+            <td>{$vo.realname}</td>
+            <td>{$vo.username}</td>
+            <td>{$vo.phone}</td>
+            <td>{$vo.email}</td>
+            <if condition="$vo.isend eq 1">
+                <td>通过</td>
+                <else />
+                <td>拒绝</td>
+            </if>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function del() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>

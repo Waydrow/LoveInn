@@ -1,0 +1,209 @@
+[ 2017-04-26T21:23:55+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014812s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.012947s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012992s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0128s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0097s ]
+SQL: SELECT apply.id AS id,apply.userid AS user_id,apply.activityid AS activity_id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=0 )  [ RunTime:0.0021s ]
+
+[ 2017-04-26T21:24:05+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000455s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000494s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0132s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0100s ]
+SQL: SELECT apply.id AS id,apply.userid AS user_id,apply.activityid AS activity_id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=1 )  [ RunTime:0.0007s ]
+
+[ 2017-04-26T21:25:55+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000433s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000552s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0144s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0111s ]
+SQL: SELECT apply.id AS id FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=1 )  [ RunTime:0.0007s ]
+
+[ 2017-04-26T21:26:26+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000431s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000631s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0169s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0142s ]
+SQL: SELECT apply.id AS id FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=1 )  [ RunTime:0.0004s ]
+
+[ 2017-04-26T21:26:29+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0153s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0108s ]
+SQL: SELECT apply.id AS id FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 )  [ RunTime:0.0003s ]
+
+[ 2017-04-26T21:26:40+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000347s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0154s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0092s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 )  [ RunTime:0.0004s ]
+
+[ 2017-04-26T21:27:14+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0149s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0103s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 )  [ RunTime:0.0004s ]
+
+[ 2017-04-26T21:27:31+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000566s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0155s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0138s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=3 )  [ RunTime:0.0005s ]
+
+[ 2017-04-26T21:27:34+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000260s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000351s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0139s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0104s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=4 )  [ RunTime:0.0003s ]
+
+[ 2017-04-26T21:27:36+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000355s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000454s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0157s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0105s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 )  [ RunTime:0.0005s ]
+
+[ 2017-04-26T21:27:38+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000312s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000339s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0148s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0123s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=1 )  [ RunTime:0.0004s ]
+
+[ 2017-04-26T22:14:15+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000090s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000663s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0199s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0134s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0019s ]
+
+[ 2017-04-26T22:14:17+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000366s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000480s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000523s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0175s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0117s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=3 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0012s ]
+
+[ 2017-04-26T22:14:19+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000343s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000370s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0152s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0125s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=1 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0009s ]
+
+[ 2017-04-26T22:14:21+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000384s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000503s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0138s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0108s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=0 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0003s ]
+
+[ 2017-04-26T22:14:23+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000300s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000310s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0142s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0128s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=4 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0003s ]
+
+[ 2017-04-26T22:14:24+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000340s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000314s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0157s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0095s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=5 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0004s ]
+
+[ 2017-04-26T22:14:26+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0136s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0103s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=3 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0003s ]
+
+[ 2017-04-26T22:14:27+08:00 ] ::1 /LoveInn/index.php/Home/App/historyInfo?user_id=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000414s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000535s ]
+SQL: SHOW COLUMNS FROM `apply` [ RunTime:0.0232s ]
+SQL: SHOW COLUMNS FROM `activity` [ RunTime:0.0147s ]
+SQL: SELECT apply.id AS id,apply.time AS time,apply.rate AS rate,apply.isjoin AS isjoin,activity.name AS name FROM apply apply  JOIN activity activity ON apply.activityid=activity.id WHERE ( userid=2 ) ORDER BY apply.isjoin ASC  [ RunTime:0.0010s ]
+

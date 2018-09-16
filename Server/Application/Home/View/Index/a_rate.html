@@ -1,0 +1,138 @@
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/lib/rate/demo/css/application.css">
+<h2>{$activity_name}</h2>
+<h3 class="header-dividing">参与志愿者列表</h3>
+<table class="table datatable" id="datatable">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>用户姓名</th>
+        <th>用户帐号</th>
+        <th>报名时间</th>
+        <th>用户爱心币</th>
+        <th>评分</th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo" key="k">
+        <tr>
+            <td>{$k}</td>
+            <td>{$vo.user_realname}</td>
+            <td>{$vo.user_name}</td>
+            <td>{$vo.time}</td>
+            <td>{$vo.user_money}</td>
+            <td>
+                <empty name='vo.rate'>
+                    <div class="rate" id="{$vo.id}" data-score="0"></div>
+                    <else/>
+                    <div class="rate" id="{$vo.id}" data-score="{$vo.rate}"></div>
+                </empty>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+<if condition="$israte eq 0">
+    <button type="button" class="btn btn-success" id="rate-btn" style="width: 5%;">提&nbsp;&nbsp;交</button>
+    <else/>
+    <button type="button" class="btn btn-success" id="rate-change-btn" style="width: 5%;">修&nbsp;&nbsp;改</button>
+</if>
+
+<script type="text/javascript" src="__PUBLIC__/lib/rate/lib/jquery.raty.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.rate').raty({
+            score: function() {
+                var score_get = $(this).attr('data-score');
+                if(score_get == 0) { // 首次评分, 默认置为0.5
+                    return 0.5;
+                } else { // 修改评分, 数据库中读取的评分
+                    return score_get;
+                }
+            },
+            path: '__PUBLIC__/lib/rate/lib/img/',
+            half: true,
+            size: 24,
+            hints: ['差', '一般', '良好', '优秀', '棒极了'],
+            cancelOff: 'cancel-off-big.png',
+            starHalf : 'star-half-big.png',
+            starOff  : 'star-off-big.png',
+            starOn   : 'star-on-big.png'
+        });
+
+        // 提交评分
+        $('#rate-btn').on('click', function() {
+            // 创建一个评分对象数组
+            var rateObjectArray = new Array();
+            // 创建评分对象
+            var rateObject = new Object();
+            // 需评分的个数
+            var length = $('.rate').length;
+            for (var i=0; i<length; i++) {
+                // 先获取该行id
+                var id_value = $($('.rate')[i]).attr('id');
+                rateObject.id = id_value;
+                // 评分值
+                rateObject.rate = $($('.rate input')[i]).val();
+                // push到array中
+                rateObjectArray.push(rateObject);
+                // 对象置空
+                rateObject = new Object();
+            }
+
+            // ajax发送的数据
+            var data = {
+                rates: rateObjectArray
+            };
+
+            $.ajax({
+                url: '{:U("/Home/Index/a_rate_submit")}',
+                method: 'POST',
+                data: data
+            }).success(function(dataget) {
+                if(dataget == 1) {
+                    alert('提交成功!');
+                    location.reload();
+                } else {
+                    alert('提交失败!');
+                }
+            }).fail(function() {
+                alert('请求失败, 请稍后重试');
+            });
+        });
+
+        // 修改评分
+        $('#rate-change-btn').on('click', function() {
+            var rateObjectArray = new Array();
+            var rateObject = new Object();
+            var length = $('.rate').length;
+            for (var i=0; i<length; i++) {
+                var id_value = $($('.rate')[i]).attr('id');
+                rateObject.id = id_value;
+                rateObject.rate = $($('.rate input')[i]).val();
+                rateObjectArray.push(rateObject);
+                rateObject = new Object();
+            }
+
+            var data = {
+                rates: rateObjectArray
+            };
+
+            $.ajax({
+                url: '{:U("/Home/Index/a_rate_change")}',
+                method: 'POST',
+                data: data
+            }).success(function(dataget) {
+                if(dataget == 1) {
+                    alert('修改成功!');
+                    location.reload();
+                } else {
+                    alert('修改失败!');
+                }
+            }).fail(function() {
+                alert('请求失败, 请稍后重试');
+            });
+        });
+
+
+    });
+</script>

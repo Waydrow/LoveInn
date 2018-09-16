@@ -1,0 +1,151 @@
+<link rel="stylesheet" href="__PUBLIC__/datepicker/datetimepicker.min.css">
+<style>
+    .form-datetime {
+        cursor: pointer !important;
+    }
+</style>
+<h2 class="header-dividing">我的活动</h2>
+<div class="row">
+    <div class="col-md-4">
+        <br>
+        <div id="myTabContent" class="tab-content">
+            <form method="post" enctype="multipart/form-data" onsubmit="return checkUser();">
+                <div class="input-group">
+                    <span class="input-group-addon">活动名称</span>
+                    <input type="text" name="name" id="name" class="form-control" value="{$data.name}">
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">开始时间</span>
+                    <input type="text" class="form-control form-datetime" value="{$data.begintime}" name="begintime" id="begintime" placeholder="请点击选择一个时间" readonly>
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">结束时间</span>
+                    <input type="text" class="form-control form-datetime" value="{$data.endtime}" name="endtime" id="endtime" placeholder="请点击选择一个时间" readonly>
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">活动地址</span>
+                    <input type="text" name="location" id="location" class="form-control" value="{$data.location}">
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">联系方式</span>
+                    <input type="text" name="contact" id="contact" class="form-control" value="{$data.contact}">
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">招募人数</span>
+                    <input type="number" name="capacity" id="capacity" class="form-control" value="{$data.capacity}" placeholder="请输入大于等于0的数字"  >
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">活动种类</span>
+                    <select class="form-control" name="category">
+                        <volist name="list" id="vo">
+                            <option value="{$vo.id}" {$vo.selected}>{$vo.name}</option>
+                        </volist>
+                    </select>
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">活动简介</span>
+                    <input type="text" name="summary" id="summary" class="form-control" value="{$data.summary}">
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">活动详情</span>
+                    <textarea class="form-control" rows="4" name="info" id="info" placeholder="可以输入多行文本">{$data.info}</textarea>
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon">活动图片</span>
+                    <input type="file" class="form-control" name="photo" id="photo">
+                    <span class="input-group-addon"><i class="icon icon-star"></i></span>
+                </div>
+                <div>
+                    <if condition="$data.hasphoto eq 0">
+                        <p>暂未上传活动图片</p>
+                        <else/>
+                        <button type="button" class="btn" data-toggle="modal" data-target="#myModal">查看活动图片</button>
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                        <h4 class="modal-title">活动图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{$data.photo}" alt="活动图片" style="width: 220px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </if>
+                </div>
+                <br>
+                <input type="text" hidden value="{$data.hasphoto}" id="hasphoto">
+                <button type="submit" class="btn btn-block btn-primary">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/datepicker/datetimepicker.min.js"></script>
+<script>
+    function checkUser() {
+        var name = $("#name").val();
+        var begintime = $("#begintime").val();
+        var endtime = $("#endtime").val();
+        var location = $('#location').val();
+        var contact = $('#contact').val();
+        var capacity = $('#capacity').val();
+        var summary = $('#summary').val();
+        var info = $('#info').val();
+        var photo = $("#photo").val();
+        var hasphoto = $('#hasphoto').val();
+        if(name == "" || begintime == "" || endtime == "" || location == "" || contact == "" ||
+            capacity == "" || summary == "" || info == "") {
+            alert('请填写完整');
+            return false;
+        }
+        if(hasphoto == 0 && photo == "") {
+            alert('请上传活动图片');
+            return false;
+        }
+        if(begintime > endtime) {
+            alert('结束时间要在开始时间之后哦');
+            return false;
+        }
+        var reg = /^\d+$/;
+        if(!reg.test(capacity)) {
+            alert('招募人数请输入大于等于0的数字');
+            return false;
+        }
+        // 防止输入000, 001这种情况
+        $('#capacity').val(parseInt(capacity));
+        return true;
+    }
+    // 选择时间和日期
+    $(".form-datetime").datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 1,
+        forceParse: 0,
+        showMeridian: 1,
+        format: "yyyy-mm-dd hh:00"
+    });
+</script>

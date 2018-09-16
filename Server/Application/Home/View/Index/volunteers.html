@@ -1,0 +1,57 @@
+<h2 class="header-dividing">志愿者列表</h2>
+<table class="table" style="width: 800px;">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>志愿者姓名</th>
+        <th>用户名</th>
+        <th style="width: 3.5em;"></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <volist name="list" id="vo">
+        <tr>
+            <td>{$i}</td>
+            <td>{$vo.realname}</td>
+            <td>{$vo.username}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal{$i}">查看详情</button>
+                <div class="modal fade" id="myModal{$i}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                                <h4 class="modal-title">{$vo.realname}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>年龄: {$vo.age}</p>
+                                <p>性别: {$vo.sex}</p>
+                                <p>身份证号: {$vo.idcard}</p>
+                                <p>电话: {$vo.phone}</p>
+                                <p>邮箱: {$vo.email}</p>
+                                <p>个人简介: {$vo.info}</p>
+                                <p>头像: <img src="{$vo.avatar}" width="150px" class="img-responsive" alt="头像"></p>
+                                <p>学生证: <img src="{$vo.stucard}" width="150px" class="img-responsive" alt="学生证"></p>
+                                <p>爱心币: {$vo.money}个</p>
+                                <p>实名认证: 已实名认证</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a type="button" href="{:U("Home/Index/delvolunteer?id=$vo[id]")}" class="btn btn-primary" onclick="del();">删除</a>
+            </td>
+        </tr>
+    </volist>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function del() {
+        if (!confirm("确认要删除？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>

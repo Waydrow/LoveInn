@@ -1,0 +1,28 @@
+<h2 class="header-dividing">活动报名列表(已通过)</h2>
+<volist name="list" id="vo">
+    <div class="panel" style="width: 50%;">
+        <div class="panel-heading">
+            <p style="font-size: 20px; font-weight: bold;">{$vo.activity_name}</p>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>用户姓名</th>
+                <th>用户帐号</th>
+                <th>报名时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="vo['sub']" id="sub" key="k">
+                <tr>
+                    <td>{$k}</td>
+                    <td>{$sub.user_realname}</td>
+                    <td>{$sub.user_name}</td>
+                    <td>{$sub.time}</td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</volist>
